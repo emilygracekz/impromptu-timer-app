@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 
 const Timer = () => {
@@ -21,7 +22,7 @@ const Timer = () => {
       return '0:00';
     }
     else {
-      return `${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`
+      return <Text>`${minutes}:${remainderSeconds < 10 ? "0" : ""}${remainderSeconds}`</Text>
     };
   }
 
@@ -39,18 +40,19 @@ const Timer = () => {
 
   return (
     <View>
-        <View> {displayTimeLeft(seconds)}</View>
+        <View> 
+        <Text>{displayTimeLeft(seconds)}</Text>
+        </View>
         <View className="row">
           <Button
             className={`button button-primary button-primary-${
-              isActive ? "active" : "inactive"
-            }`}
+              isActive ? "active" : "inactive"}`}
             onClick={toggle}
           >
-            {isActive ? "Pause" : "Start"}
+            {isActive ? <Text>Pause</Text> : <Text>Start</Text>}
           </Button>
           <Button className="button" onClick={reset}>
-            Reset
+            <Text>Reset</Text>
           </Button>
         </View>
         </View>
